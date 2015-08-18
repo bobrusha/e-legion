@@ -1,5 +1,6 @@
 package com.aleksandra;
 
+import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,11 +10,11 @@ import java.util.List;
 public class Solver {
 
     public static int calculateArea(List<Rectangle> aRectangle) {
-        int result;
 
         Collections.sort(aRectangle);
-
         System.out.println(aRectangle);
+
+        ArrayDeque<Rectangle> queue = new ArrayDeque<>(aRectangle);
 
         return 0;
     }
