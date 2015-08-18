@@ -38,6 +38,8 @@ public class Main {
             System.out.println(rectangles);
 
             Solver.calculateArea(rectangles);
+
+            System.out.println(rectangles.get(0).getIntersectionArea(rectangles.get(1)));
         } catch (FileNotFoundException e) {
             System.out.println("File " + input + "wasn't found");
         } catch (IOException e) {

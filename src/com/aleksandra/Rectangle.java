@@ -28,6 +28,18 @@ public class Rectangle implements Comparable {
         return Math.abs((x1 - x2) * (y1 - y2));
     }
 
+    public int getIntersectionArea(Rectangle that) {
+        if (this.x2 <= that.x1 || this.x1 >= that.x2 || this.y1 >= that.y2 || this.y2 <= that.y1)
+            return 0;
+        int nx1 = this.x1 > that.x1? this.x1 : that.x1;
+        int ny1 = this.y1 > that.y1? this.y1 : that.y1;
+        int nx2 = this.x2 < that.x2? this.x2 : that.x2;
+        int ny2 = this.y2 < that.y2? this.y2 : that.y2;
+
+        return Math.abs((nx1 - nx2) * (ny1 - ny2));
+    }
+
+
     @Override
     public int compareTo(Object o) {
         //Oracle recommendation
