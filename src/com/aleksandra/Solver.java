@@ -16,6 +16,22 @@ public class Solver {
 
         ArrayDeque<Rectangle> queue = new ArrayDeque<>(aRectangle);
 
+        Rectangle head;
+        Rectangle runner;
+
+        //TODO: int maybe small
+        int sum;
+
+        while (!queue.isEmpty()) {
+            head = queue.poll();
+
+            while () {
+
+            }
+
+        }
+
+
         return 0;
     }
 
