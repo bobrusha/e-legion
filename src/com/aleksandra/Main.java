@@ -1,11 +1,9 @@
 package com.aleksandra;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
 /**
  * Created by Aleksandra on 18.08.15.
@@ -16,39 +14,31 @@ public class Main {
         String input = args[0];
         String output = args[1];
 
-        BufferedReader reader;
+
+        BufferedWriter writer = null;
 
         try {
-            reader = new BufferedReader(new FileReader(input));
+            Rectangle[] arr = Parser.parse(input);
+            System.out.println(Arrays.deepToString(arr));
+            int result = Solver.calculateArea(arr);
 
-            ArrayList<Rectangle> rectangles = new ArrayList<>();
-            StringTokenizer tokenizer;
-            String line;
+            writer = new BufferedWriter(new FileWriter(output));
+            writer.write("" + result);
+            writer.flush();
 
-            while ((line = reader.readLine()) != null) {
-                tokenizer = new StringTokenizer(line);
-                int x1 = Integer.parseInt(tokenizer.nextToken());
-                int y1 = Integer.parseInt(tokenizer.nextToken());
-                int x2 = Integer.parseInt(tokenizer.nextToken());
-                int y2 = Integer.parseInt(tokenizer.nextToken());
-
-                rectangles.add(new Rectangle(x1, y1, x2, y2));
-            }
-
-            System.out.println(rectangles);
-
-            Rectangle[] array = new Rectangle[rectangles.size()];
-            rectangles.toArray(array);
-
-            int result = Solver.calculateArea(array);
-            System.out.println("Area of shape:" + result);
-
-            System.out.println(rectangles.get(0).getIntersectionArea(rectangles.get(1)));
-        } catch (FileNotFoundException e) {
-            System.out.println("File " + input + "wasn't found");
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
+
     }
 
     //TODO: добавить проверку количества чисел в исходном файле
