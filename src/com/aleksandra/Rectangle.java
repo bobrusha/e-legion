@@ -13,6 +13,7 @@ public class Rectangle implements Comparable {
     int y2;
 
     public Rectangle(int x1, int y1, int x2, int y2) {
+        //TODO: add checking right-upper
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -20,7 +21,7 @@ public class Rectangle implements Comparable {
     }
 
     /**
-     * Calculates area of rectangle as a multiplication of two sides.
+     * Calculates area of rectangle as a multiplication of width and height
      *
      * @return area of rectangle
      */
@@ -57,13 +58,29 @@ public class Rectangle implements Comparable {
         return this.x1 - that.x1;
     }
 
+    public boolean contains (Rectangle r) {
+        return this.x1 <= r.x1 && this.y1 <= r.x1 && this.x2 >= r.x2 && this.y2 >= r.y2;
+    }
+    public boolean intersects (Rectangle r) {
+        return this.x1 < r.x2 && this.x2 > r.x1 && this.y1 < r.y2 && this.y2 > r.y1;
+    }
+    public int getX1() {
+        return x1;
+    }
+
+    public int getX2() {
+        return x2;
+    }
+
     @Override
     public String toString() {
-        return "Rectangle{" +
+        return "MyRectangle{" +
                 "x1=" + x1 +
                 ", y1=" + y1 +
                 ", x2=" + x2 +
                 ", y2=" + y2 +
                 '}';
     }
+
+
 }

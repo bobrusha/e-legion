@@ -37,7 +37,8 @@ public class Main {
 
             System.out.println(rectangles);
 
-            Solver.calculateArea(rectangles);
+            int result = Solver.calculateArea(rectangles);
+            System.out.println(result);
 
             System.out.println(rectangles.get(0).getIntersectionArea(rectangles.get(1)));
         } catch (FileNotFoundException e) {

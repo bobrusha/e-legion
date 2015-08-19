@@ -15,24 +15,25 @@ public class Solver {
         System.out.println(aRectangle);
 
         ArrayDeque<Rectangle> queue = new ArrayDeque<>(aRectangle);
+        ArrayDeque<Rectangle> helper = new ArrayDeque<>(aRectangle);
 
         Rectangle head;
         Rectangle runner;
 
         //TODO: int maybe small
-        int sum;
+        int result = 0;
 
         while (!queue.isEmpty()) {
             head = queue.poll();
-
-            while () {
-
+            result += head.calculateArea();
+            helper.poll();
+            while ((runner = helper.poll()) != null && head.getX2() > runner.getX1()) {
+                result += runner.calculateArea();
+                result -= head.getIntersectionArea(runner);
             }
-
         }
 
-
-        return 0;
+        return result;
     }
 
 }
