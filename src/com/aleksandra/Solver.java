@@ -15,7 +15,6 @@ public class Solver {
         System.out.println(aRectangle);
 
         ArrayDeque<Rectangle> queue = new ArrayDeque<>(aRectangle);
-        ArrayDeque<Rectangle> helper = new ArrayDeque<>(aRectangle);
 
         Rectangle head;
         Rectangle runner;
@@ -23,15 +22,6 @@ public class Solver {
         //TODO: int maybe small
         int result = 0;
 
-        while (!queue.isEmpty()) {
-            head = queue.poll();
-            result += head.calculateArea();
-            helper.poll();
-            while ((runner = helper.poll()) != null && head.getX2() > runner.getX1()) {
-                result += runner.calculateArea();
-                result -= head.getIntersectionArea(runner);
-            }
-        }
 
         return result;
     }
