@@ -37,8 +37,11 @@ public class Main {
 
             System.out.println(rectangles);
 
-            int result = Solver.calculateArea(rectangles);
-            System.out.println(result);
+            Rectangle[] array = new Rectangle[rectangles.size()];
+            rectangles.toArray(array);
+
+            int result = Solver.calculateArea(array);
+            System.out.println("Area of shape:" + result);
 
             System.out.println(rectangles.get(0).getIntersectionArea(rectangles.get(1)));
         } catch (FileNotFoundException e) {
