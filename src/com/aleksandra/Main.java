@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * Created by Aleksandra on 18.08.15.
@@ -18,9 +19,9 @@ public class Main {
         BufferedWriter writer = null;
 
         try {
-            Rectangle[] arr = Parser.parse(input);
-            System.out.println(Arrays.deepToString(arr));
-            int result = Solver.calculateArea(arr);
+            Parser parser = new Parser();
+            parser.parse(input);
+            int result = Solver.calculateArea(parser.getListX(), parser.getListY());
 
             writer = new BufferedWriter(new FileWriter(output));
             writer.write("" + result);

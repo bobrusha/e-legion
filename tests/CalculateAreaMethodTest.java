@@ -50,6 +50,6 @@ public class CalculateAreaMethodTest extends Assert {
         stringTokenizer = new StringTokenizer(new BufferedReader(new FileReader("txt/output3.txt")).readLine());
         final int expected = Integer.parseInt(stringTokenizer.nextToken());
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 }

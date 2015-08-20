@@ -1,28 +1,31 @@
 package com.aleksandra;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Aleksandra on 18.08.15.
  */
 public class Solver {
-    public static int calculateArea(Rectangle[] aRectangle) {
+    public static int calculateArea(ArrayList<Integer> arrX, ArrayList<PointY> arrY) {
+        Collections.sort(arrX);
+        Collections.sort(arrY);
 
-        Arrays.sort(aRectangle);
-        System.out.println(Arrays.deepToString(aRectangle));
-
-        Rectangle head;
-        Rectangle runner;
-
-        //TODO: int maybe small
         int result = 0;
-
-        for (int i = 0; i < aRectangle.length; ++i) {
-            result += aRectangle[i].calculateArea();
-            int j = i + 1;
-            while (j < aRectangle.length && aRectangle[j].getX1() < aRectangle[i].getX2()) {
-                result -= aRectangle[i].getIntersectionArea(aRectangle[j]);
-                ++j;
+        for (int i = 1; i < arrX.size(); ++i) {
+            int length = arrX.get(i) - arrX.get(i - 1);
+            int cnt = 0;
+            int start = 0;
+            for (int j = 0; j < arrY.size(); ++j) {
+                if (arrY.get(j).getLeftX() >= arrX.get(i) || arrY.get(j).getRightX() <= arrX.get(i - 1))
+                    continue;
+                if (cnt == 0) {
+                    start = arrY.get(j).getY();
+                }
+                cnt += arrY.get(j).getValueOfType();
+                if (cnt == 0) {
+                    result += (arrY.get(j).getY() - start) * length;
+                }
             }
         }
         return result;
