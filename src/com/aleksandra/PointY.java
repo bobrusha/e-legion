@@ -4,10 +4,10 @@ package com.aleksandra;
  * Created by Aleksandra on 20.08.15.
  */
 public class PointY implements Comparable{
-    int y;
-    int leftX;
-    int rightX;
-    PointType type;
+    private int y;
+    private int leftX;
+    private int rightX;
+    private PointType type;
 
     public PointY(int y, int leftX, int rightX, PointType type) {
         this.y = y;

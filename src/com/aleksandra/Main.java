@@ -3,8 +3,6 @@ package com.aleksandra;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
 
 /**
  * Created by Aleksandra on 18.08.15.
@@ -29,7 +27,7 @@ public class Main {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (writer != null) {
                 try {
                     writer.close();
