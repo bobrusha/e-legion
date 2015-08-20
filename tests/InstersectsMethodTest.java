@@ -48,6 +48,5 @@ public class InstersectsMethodTest extends Assert {
         final boolean expected = false;
         final boolean actual = r1.intersects(r2);
         assertEquals(expected, actual);
-
     }
 }
