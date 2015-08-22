@@ -4,43 +4,37 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 /**
  * Created by Aleksandra on 19.08.15.
  */
 public class Parser {
-    private LinkedList<Integer> listX = new LinkedList<>();
-    private LinkedList<PointY> listY = new LinkedList<>();
+    private static final int COORDINATES_IN_LINE = 4;
 
-    public void parse(String inputFileName) throws IOException {
+    public ArrayList<Rectangle> parse(String inputFileName) throws IOException {
         BufferedReader reader;
 
         reader = new BufferedReader(new FileReader(inputFileName));
 
         StringTokenizer tokenizer;
         String line;
+        ArrayList<Rectangle> rectangles = new ArrayList<>();
 
         while ((line = reader.readLine()) != null) {
+            //TODO: write checking: input contains <= 100 lines
             tokenizer = new StringTokenizer(line);
+            // TODO: check line below
+            if (tokenizer.countTokens() != COORDINATES_IN_LINE)
+                throw new IllegalArgumentException("Not correct format of input data.");
+
             int x1 = Integer.parseInt(tokenizer.nextToken());
             int y1 = Integer.parseInt(tokenizer.nextToken());
             int x2 = Integer.parseInt(tokenizer.nextToken());
             int y2 = Integer.parseInt(tokenizer.nextToken());
-
-            listX.add(x1);
-            listX.add(x2);
-            listY.add(new PointY(y1, x1, x2, PointType.OPENING));
-            listY.add(new PointY(y2, x1, x2, PointType.CLOSING));
+            //TODO: Math.min() and Math.max() ??
+            rectangles.add(new Rectangle(x1, y1, x2, y2));
         }
-    }
-
-    public ArrayList<Integer> getListX() {
-        return new ArrayList<Integer>(listX);
-    }
-
-    public ArrayList<PointY> getListY() {
-        return new ArrayList<>(listY);
+        return rectangles;
     }
 }

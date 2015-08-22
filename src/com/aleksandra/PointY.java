@@ -37,8 +37,11 @@ public class PointY implements Comparable{
 
     @Override
     public int compareTo(Object o) {
+        //TODO: read oracle recommendations
+
         if (o == null)
             throw new NullPointerException();
+
         PointY that = (PointY) o;
 
         return this.y - that.y;
