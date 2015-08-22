@@ -1,13 +1,15 @@
 package com.aleksandra;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * Created by Aleksandra on 20.08.15.
  */
-public class PointY implements Comparable{
-    private int y;
-    private int leftX;
-    private int rightX;
-    private PointType type;
+public class PointY implements Comparable {
+    private final int y;
+    private final int leftX;
+    private final int rightX;
+    private final PointType type;
 
     public PointY(int y, int leftX, int rightX, PointType type) {
         this.y = y;
@@ -36,12 +38,8 @@ public class PointY implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(@NotNull Object o) {
         //TODO: read oracle recommendations
-
-        if (o == null)
-            throw new NullPointerException();
-
         PointY that = (PointY) o;
 
         return this.y - that.y;

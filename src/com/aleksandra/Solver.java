@@ -7,11 +7,11 @@ import java.util.Collections;
  * Created by Aleksandra on 18.08.15.
  */
 public class Solver {
-    //TODO: replace arrX,
     public static int calculateArea(ArrayList<Rectangle> rectangles) {
         ArrayList<Integer> arrX = new ArrayList<>(rectangles.size() * 2);
         ArrayList<PointY> arrY = new ArrayList<>(rectangles.size() * 2);
-        for (Rectangle r: rectangles ) {
+
+        for (Rectangle r : rectangles) {
             arrX.add(r.getX1());
             arrX.add(r.getX2());
             arrY.add(new PointY(r.getY1(), r.getX1(), r.getX2(), PointType.OPENING));

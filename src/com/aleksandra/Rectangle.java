@@ -4,10 +4,11 @@ package com.aleksandra;
  * Created by Aleksandra on 22.08.15.
  */
 public class Rectangle {
-    private int x1;
-    private int y1;
-    private int x2;
-    private int y2;
+    //TODO: final?
+    private final int x1;
+    private final int y1;
+    private final int x2;
+    private final int y2;
 
     public Rectangle(int x1, int y1, int x2, int y2) {
         this.x1 = x1;

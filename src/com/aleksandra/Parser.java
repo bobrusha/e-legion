@@ -11,6 +11,8 @@ import java.util.StringTokenizer;
  */
 public class Parser {
     private static final int COORDINATES_IN_LINE = 4;
+    private static final int MAX_VALUE_OF_COORDINATE = 10_000;
+    private static final int MAX_NUMBER_OF_LINES_IN_FILE = 100;
 
     public ArrayList<Rectangle> parse(String inputFileName) throws IOException {
         BufferedReader reader;
@@ -21,17 +23,24 @@ public class Parser {
         String line;
         ArrayList<Rectangle> rectangles = new ArrayList<>();
 
+        int lineCounter = 0;
         while ((line = reader.readLine()) != null) {
-            //TODO: write checking: input contains <= 100 lines
+            if (++lineCounter > MAX_NUMBER_OF_LINES_IN_FILE)
+                throw new NotCorrectInputFormatException("File \"" + inputFileName + "\" contains more than 100 lines");
             tokenizer = new StringTokenizer(line);
-            // TODO: check line below
             if (tokenizer.countTokens() != COORDINATES_IN_LINE)
-                throw new IllegalArgumentException("Not correct format of input data.");
-
+                throw new NotCorrectInputFormatException("Line №" + lineCounter + " doesn't contain four numbers");
             int x1 = Integer.parseInt(tokenizer.nextToken());
             int y1 = Integer.parseInt(tokenizer.nextToken());
             int x2 = Integer.parseInt(tokenizer.nextToken());
             int y2 = Integer.parseInt(tokenizer.nextToken());
+            if (Math.abs(x1) > MAX_VALUE_OF_COORDINATE ||
+                    Math.abs(x2) > MAX_VALUE_OF_COORDINATE ||
+                    Math.abs(y1) > MAX_VALUE_OF_COORDINATE ||
+                    Math.abs(y2) > MAX_VALUE_OF_COORDINATE) {
+                throw new NotCorrectInputFormatException("Line №" + lineCounter +
+                        " has number(s) more than 10000 or less than -10000.");
+            }
             //TODO: Math.min() and Math.max() ??
             rectangles.add(new Rectangle(x1, y1, x2, y2));
         }
