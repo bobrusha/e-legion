@@ -1,7 +1,7 @@
 package com.elegion.androidschool;
 
 /**
- * Created by Aleksandra on 20.08.15.
+ * @author Bobrova Aleksandra
  */
 public class NotEnoughArgumentsException extends Exception {
     public NotEnoughArgumentsException() {

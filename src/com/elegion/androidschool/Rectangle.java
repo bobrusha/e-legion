@@ -1,7 +1,7 @@
 package com.elegion.androidschool;
 
 /**
- * Created by Aleksandra on 22.08.15.
+ * @author Bobrova Aleksandra
  */
 public class Rectangle {
     /**

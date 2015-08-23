@@ -1,7 +1,7 @@
 package com.elegion.androidschool;
 
 /**
- * Created by Aleksandra on 20.08.15.
+ * @author Bobrova Aleksandra
  */
 public class NotCorrectInputFormatException extends Exception {
     public NotCorrectInputFormatException() {

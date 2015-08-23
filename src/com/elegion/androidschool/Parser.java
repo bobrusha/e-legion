@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * Created by Aleksandra on 19.08.15.
+ * @author Bobrova Aleksandra
  */
 public class Parser {
     private static final int COORDINATES_IN_LINE = 4;

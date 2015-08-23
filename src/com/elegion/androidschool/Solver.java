@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by Aleksandra on 18.08.15.
+ * @author Bobrova Aleksandra
  */
 public class Solver {
     /**
