@@ -1,4 +1,4 @@
-package com.aleksandra;
+package com.elegion.androidschool;
 
 /**
  * Created by Aleksandra on 20.08.15.

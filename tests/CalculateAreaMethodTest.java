@@ -1,4 +1,4 @@
-import com.aleksandra.Main;
+import com.elegion.androidschool.Main;
 import org.junit.Assert;
 import org.junit.Test;
 

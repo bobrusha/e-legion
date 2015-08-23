@@ -1,7 +1,7 @@
-import com.aleksandra.Main;
-import com.aleksandra.NotCorrectInputFormatException;
-import com.aleksandra.NotEnoughArgumentsException;
-import com.aleksandra.Parser;
+import com.elegion.androidschool.Main;
+import com.elegion.androidschool.NotCorrectInputFormatException;
+import com.elegion.androidschool.NotEnoughArgumentsException;
+import com.elegion.androidschool.Parser;
 import org.junit.Assert;
 import org.junit.Test;
 

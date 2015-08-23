@@ -1,11 +1,9 @@
-package com.aleksandra;
-
-import java.io.IOException;
+package com.elegion.androidschool;
 
 /**
  * Created by Aleksandra on 20.08.15.
  */
-public class NotCorrectInputFormatException extends IOException {
+public class NotCorrectInputFormatException extends Exception {
     public NotCorrectInputFormatException() {
     }
 

@@ -1,9 +1,10 @@
-package com.aleksandra;
+package com.elegion.androidschool;
 
 import com.sun.istack.internal.NotNull;
 
 /**
- * Created by Aleksandra on 20.08.15.
+ *
+ * @author Bobrova Aleksandra
  */
 public class PointY implements Comparable {
     private final int y;
@@ -39,9 +40,7 @@ public class PointY implements Comparable {
 
     @Override
     public int compareTo(@NotNull Object o) {
-        //TODO: read oracle recommendations
         PointY that = (PointY) o;
-
         return this.y - that.y;
     }
 }

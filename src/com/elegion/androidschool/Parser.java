@@ -1,4 +1,4 @@
-package com.aleksandra;
+package com.elegion.androidschool;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,7 +14,7 @@ public class Parser {
     private static final int MAX_VALUE_OF_COORDINATE = 10_000;
     private static final int MAX_NUMBER_OF_LINES_IN_FILE = 100;
 
-    public ArrayList<Rectangle> parse(String inputFileName) throws IOException {
+    public ArrayList<Rectangle> parse(String inputFileName) throws NotCorrectInputFormatException, IOException {
         BufferedReader reader;
 
         reader = new BufferedReader(new FileReader(inputFileName));
@@ -44,6 +44,7 @@ public class Parser {
             //TODO: Math.min() and Math.max() ??
             rectangles.add(new Rectangle(x1, y1, x2, y2));
         }
+        reader.close();
         return rectangles;
     }
 }

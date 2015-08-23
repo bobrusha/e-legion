@@ -1,4 +1,4 @@
-package com.aleksandra;
+package com.elegion.androidschool;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -27,21 +27,18 @@ public class Main {
         BufferedWriter writer = null;
 
         try {
-            int result = Solver.calculateArea(new Parser().parse(input));
+            try {
+                int result = Solver.calculateArea(new Parser().parse(input));
 
-            writer = new BufferedWriter(new FileWriter(output));
-            writer.write("" + result);
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (writer != null) {
-                try {
+                writer = new BufferedWriter(new FileWriter(output));
+                writer.write("" + result);
+                writer.flush();
+            } finally {
+                if (writer != null)
                     writer.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
+        } catch (IOException | NotCorrectInputFormatException e) {
+            e.printStackTrace();
         }
     }
 }

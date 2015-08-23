@@ -1,4 +1,4 @@
-package com.aleksandra;
+package com.elegion.androidschool;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +7,12 @@ import java.util.Collections;
  * Created by Aleksandra on 18.08.15.
  */
 public class Solver {
+    /**
+     * Calculates area of shape formed rectangles.
+     *
+     * @param rectangles - not null ArrayList what contains
+     * @return Area of union of rectangles.
+     */
     public static int calculateArea(ArrayList<Rectangle> rectangles) {
         ArrayList<Integer> arrX = new ArrayList<>(rectangles.size() * 2);
         ArrayList<PointY> arrY = new ArrayList<>(rectangles.size() * 2);
