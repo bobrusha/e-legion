@@ -81,4 +81,17 @@ public class CalculateAreaMethodTest extends Assert {
 
         assertEquals(expected, actual);
     }
+    @Test
+    public void testNumber6() throws Exception {
+        final String[] arguments = {"txt/input6.txt", "txt/output.txt"};
+        Main.main(arguments);
+
+        StringTokenizer stringTokenizer = new StringTokenizer(new BufferedReader(new FileReader("txt/output.txt")).readLine());
+        final int actual = Integer.parseInt(stringTokenizer.nextToken());
+
+        stringTokenizer = new StringTokenizer(new BufferedReader(new FileReader("txt/output6.txt")).readLine());
+        final int expected = Integer.parseInt(stringTokenizer.nextToken());
+
+        assertEquals(expected, actual);
+    }
 }

@@ -3,7 +3,6 @@ package com.elegion.androidschool;
 import com.sun.istack.internal.NotNull;
 
 /**
- *
  * @author Bobrova Aleksandra
  */
 public class PointY implements Comparable {
@@ -31,16 +30,15 @@ public class PointY implements Comparable {
         return rightX;
     }
 
-    public int getValueOfType() {
-        if (type == PointType.OPENING)
-            return 1;
-        else
-            return -1;
+    public PointType getType() {
+        return type;
     }
 
     @Override
     public int compareTo(@NotNull Object o) {
         PointY that = (PointY) o;
+        if (this.y == that.y)
+            return this.type.getValue();
         return this.y - that.y;
     }
 }

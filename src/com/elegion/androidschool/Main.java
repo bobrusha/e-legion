@@ -13,19 +13,15 @@ public class Main {
         if (args.length < 2) {
             throw new NotEnoughArgumentsException("Not enough arguments in main()");
         }
-
         String input = args[0];
         String output = args[1];
-
         if (!input.endsWith(".txt")) {
             throw new NotCorrectParameterException("Input file isn't txt-file.");
         }
         if (!output.endsWith(".txt")) {
             throw new NotCorrectParameterException("Output file isn't txt-file.");
         }
-
         BufferedWriter writer = null;
-
         try {
             try {
                 int result = Solver.calculateArea(new Parser().parse(input));

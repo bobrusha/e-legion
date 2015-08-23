@@ -15,15 +15,13 @@ public class Parser {
     private static final int MAX_NUMBER_OF_LINES_IN_FILE = 100;
 
     public ArrayList<Rectangle> parse(String inputFileName) throws NotCorrectInputFormatException, IOException {
-        BufferedReader reader;
-
-        reader = new BufferedReader(new FileReader(inputFileName));
+        BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
 
         StringTokenizer tokenizer;
         String line;
         ArrayList<Rectangle> rectangles = new ArrayList<>();
-
         int lineCounter = 0;
+
         while ((line = reader.readLine()) != null) {
             if (++lineCounter > MAX_NUMBER_OF_LINES_IN_FILE)
                 throw new NotCorrectInputFormatException("File \"" + inputFileName + "\" contains more than 100 lines");
@@ -41,7 +39,6 @@ public class Parser {
                 throw new NotCorrectInputFormatException("Line №" + lineCounter +
                         " has number(s) more than 10000 or less than -10000.");
             }
-            //TODO: Math.min() and Math.max() ??
             rectangles.add(new Rectangle(x1, y1, x2, y2));
         }
         reader.close();
