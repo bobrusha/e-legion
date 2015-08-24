@@ -1,6 +1,8 @@
 package com.elegion.androidschool;
 
 /**
+ * Type of point y: opening or closing.
+ *
  * @author Bobrova Aleksandra
  */
 public enum PointType {

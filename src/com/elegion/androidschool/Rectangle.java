@@ -1,7 +1,7 @@
 package com.elegion.androidschool;
 
 /**
- * A Rectangle specifies an area in a coordinate space that is enclosed by (x1, y1,) and (x2, y2) points.
+ * Specifies an area in a coordinate space that is enclosed by (x1, y1,) and (x2, y2) points.
  *
  * @author Bobrova Aleksandra
  */

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * Contains a method for calculating union of rectangles area.
+ *
  * @author Bobrova Aleksandra
  */
 public class Solver {
