@@ -1,8 +1,8 @@
 package com.elegion.androidschool;
 
-import com.sun.istack.internal.NotNull;
-
 /**
+ * Encapsulates information about coordinate y.
+ *
  * @author Bobrova Aleksandra
  */
 public class PointY implements Comparable {
@@ -35,10 +35,11 @@ public class PointY implements Comparable {
     }
 
     @Override
-    public int compareTo(@NotNull Object o) {
+    public int compareTo(Object o) {
         PointY that = (PointY) o;
-        if (this.y == that.y)
+        if (this.y == that.y) {
             return this.type.getValue();
+        }
         return this.y - that.y;
     }
 }

@@ -8,11 +8,11 @@ import java.util.Collections;
  */
 public class Solver {
     /**
-     * Calculates area of shape formed rectangles.
+     * Calculates area of a shape formed rectangles.
      * Idea of algorithm:
      * 1. Sort all x and split plane with lines x = x_i.
-     * 2. Solve problem about union of segments length.
-     * 3. Add to result multiplication of length and difference between two adjacent x.
+     * 2. For every two adjacent x find union length of segments and add
+     * multiplication of length and difference between two adjacent x to result.
      *
      * @param rectangles - not null ArrayList what contains
      * @return Area of union of rectangles.
@@ -37,8 +37,9 @@ public class Solver {
             int cnt = 0;
             int start = 0;
             for (PointY pointY : arrY) {
-                if (pointY.getLeftX() >= arrX.get(i) || pointY.getRightX() <= arrX.get(i - 1))
+                if (pointY.getLeftX() >= arrX.get(i) || pointY.getRightX() <= arrX.get(i - 1)) {
                     continue;
+                }
                 if (cnt == 0) {
                     start = pointY.getY();
                 }

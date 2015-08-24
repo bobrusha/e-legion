@@ -1,6 +1,8 @@
 package com.elegion.androidschool;
 
 /**
+ * Signals that program was launched without enough arguments.
+ *
  * @author Bobrova Aleksandra
  */
 public class NotEnoughArgumentsException extends Exception {

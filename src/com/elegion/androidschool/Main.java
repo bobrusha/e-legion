@@ -9,32 +9,29 @@ import java.io.IOException;
  */
 public class Main {
 
-    public static void main(String args[]) throws NotEnoughArgumentsException, NotCorrectParameterException {
+    public static void main(String args[]) throws NotEnoughArgumentsException {
         if (args.length < 2) {
             throw new NotEnoughArgumentsException("Not enough arguments in main()");
         }
         String input = args[0];
         String output = args[1];
-        if (!input.endsWith(".txt")) {
-            throw new NotCorrectParameterException("Input file isn't txt-file.");
-        }
-        if (!output.endsWith(".txt")) {
-            throw new NotCorrectParameterException("Output file isn't txt-file.");
-        }
         BufferedWriter writer = null;
         try {
-            try {
-                int result = Solver.calculateArea(new Parser().parse(input));
+            int result = Solver.calculateArea(new Parser().parse(input));
 
-                writer = new BufferedWriter(new FileWriter(output));
-                writer.write("" + result);
-                writer.flush();
-            } finally {
-                if (writer != null)
-                    writer.close();
-            }
+            writer = new BufferedWriter(new FileWriter(output));
+            writer.write("" + result);
+            writer.flush();
         } catch (IOException | NotCorrectInputFormatException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
